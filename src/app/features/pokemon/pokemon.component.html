@@ -1,0 +1,28 @@
+<div *ngIf="isLoading" class="sample-container">
+  <po-loading-overlay></po-loading-overlay>
+</div>
+
+<div class="po-wrapper">
+  <po-toolbar [p-title]="titleToolbar"></po-toolbar>
+
+
+  <po-page-default [p-title]="getAppName()" [p-breadcrumb]="breadcrumb">
+
+    <po-table [p-items]="items" [p-columns]="columns" [p-show-more-disabled]="isMoreItems"
+      (p-show-more)="loadMoreItems()" [p-actions]="tableActions" [p-hide-table-search]="false"> </po-table>
+
+  </po-page-default>
+</div>
+
+
+<po-modal #poModal [p-title]="titleModal" (p-close)="closeModal()">
+  <h3>Habilidades</h3>
+  <br>
+  @for (item of abilitiesPokemon; track $index) {
+  <p>{{item?.ability.name}}</p>
+  }
+  <po-modal-footer>
+    <po-button p-label="Voltar" (p-click)="closeModal()"> </po-button>
+  </po-modal-footer>
+
+</po-modal>
