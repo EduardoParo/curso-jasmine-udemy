@@ -1,0 +1,26 @@
+<div *ngIf="isLoading" class="sample-container">
+  <po-loading-overlay></po-loading-overlay>
+</div>
+
+<div class="po-wrapper">
+  <po-toolbar [p-title]="titleToolbar"></po-toolbar>
+
+
+  <po-page-default [p-title]="getAppName()" [p-breadcrumb]="breadcrumb">
+    <p>{{infoPage}}</p>
+
+    <div class="po-row">
+      <form [formGroup]="formGroup">
+        <po-input class="po-sm-12" formControlName="search" p-clean p-mask="99999-999" p-label="Digite seu CEP"> </po-input>
+      </form>
+    </div>
+    <po-table [p-items]="items" [p-columns]="columns"> </po-table>
+
+    <po-divider></po-divider>
+    <h3>Resposta da API</h3>
+    <br>
+    <p>{{resApi}}</p>
+
+
+  </po-page-default>
+</div>
